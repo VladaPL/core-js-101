@@ -212,11 +212,15 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
-  // const getWight = '─'.repeat(width);
-  // const getHight = '─\n'.repeat(height);
+function getRectangleString(width, height) {
+  const firstRow = `┌${'─'.repeat(width - 2)}┐\n`;
+  const middleRow = `│${' '.repeat(width - 2)}│\n`;
+  const lastRow = `└${'─'.repeat(width - 2)}┘\n`;
+  const amountMiddleRow = height - 2;
+  const rectangle = `${firstRow}${middleRow.repeat(amountMiddleRow)}${lastRow}`;
+  return rectangle;
 }
+
 
 /**
  * Encode specified string with ROT13 cipher
