@@ -221,7 +221,6 @@ function getRectangleString(width, height) {
   return rectangle;
 }
 
-
 /**
  * Encode specified string with ROT13 cipher
  * See details:  https://en.wikipedia.org/wiki/ROT13
@@ -238,44 +237,31 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
-  // const arr_en = [
-  //   'a',
-  //   'b',
-  //   'c',
-  //   'd',
-  //   'e',
-  //   'f',
-  //   'g',
-  //   'h',
-  //   'i',
-  //   'j',
-  //   'k',
-  //   'l',
-  //   'm',
-  //   'n',
-  //   'o',
-  //   'p',
-  //   'q',
-  //   'r',
-  //   's',
-  //   't',
-  //   'u',
-  //   'v',
-  //   'w',
-  //   'x',
-  //   'y',
-  //   'z',
-  // ];
-  // const strToArr = str.split('');
-  // const newArr = strToArr.map(function (item) {
-  //   let result = '';
-  //   const indMatchChar = arr_en.indexOf(item);
-  //   const posNewChar = indMatchChar + 13;
-  //   const CharFromAlf = arr_en[posNewChar]; // символ из алф
-  //   return result + CharFromAlf;
-  // });
+function encodeToRot13(str) {
+  // throw new Error('Not implemented');
+  const arrAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  const arrRotate = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
+  const arrOfStr = str.split('');
+
+  const indexesFromAlf = arrOfStr.map((item) => {
+    const indArrOfStr = arrAlphabet.indexOf(item); // массив индексов символов слова соотв алф-у
+    return indArrOfStr; // заменить каждый индекс символом из arrRotate
+  });
+
+  const newArr = indexesFromAlf.map((index) => {
+    const arrFromRotate = arrRotate[index];
+    return arrFromRotate;
+  });
+
+  for (let i = 0; i < newArr.length; i += 1) { // раставляем пробелы между словами
+    if (newArr[i] === undefined) {
+      newArr[i] = ' ';
+    }
+    if (newArr[newArr.length - 1] === ' ') { // проверяем был ли знак в конце строки
+      newArr.slice(0, newArr.length - 1).concat(arrOfStr.length - 1);
+    }
+  }
+  return newArr.join('');
 }
 
 /**
