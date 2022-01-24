@@ -37,10 +37,14 @@ function findElement(arr, value) {
  */
 function generateOdds(/* len */) {
   throw new Error('Not implemented');
-  // const arrOfLen = Array(len);
-  // console.log(arrOfLen);
-  // const arrItem = arrOfLen.map(item => item = 3);
-  // return arrItem;
+  // const arr = [];
+  // let odd = 1;
+
+  // for (let i = 1; i <= len; i += 1) {
+  //   arr.push(odd);
+  //   odd += 2;
+  // }
+  // return arr;
 }
 
 
@@ -74,6 +78,14 @@ function doubleArray(/* arr */) {
  */
 function getArrayOfPositives(/* arr */) {
   throw new Error('Not implemented');
+  // const result = [];
+  // let i = 0;
+  // for (i = 0; i < arr.length; i += 1) {
+  //   if (arr[i] > 0) {
+  //     result.push(arr[i]);
+  //   }
+  // }
+  // return result;
 }
 
 /**
@@ -89,6 +101,13 @@ function getArrayOfPositives(/* arr */) {
  */
 function getArrayOfStrings(/* arr */) {
   throw new Error('Not implemented');
+  // const result = [];
+  // for (i = 0; i < arr.length; i++) {
+  //   if (typeof(arr[i]) === 'string') {
+  //     result.push(arr[i]);
+  //   }
+  // }
+  // return result;
 }
 
 /**

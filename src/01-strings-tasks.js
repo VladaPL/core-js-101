@@ -239,8 +239,8 @@ function getRectangleString(width, height) {
  */
 function encodeToRot13(str) {
   // throw new Error('Not implemented');
-  const arrAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-  const arrRotate = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
+  const arrAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.!?'.split('');
+  const arrRotate = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm.!?'.split('');
   const arrOfStr = str.split('');
 
   const indexesFromAlf = arrOfStr.map((item) => {
@@ -257,9 +257,9 @@ function encodeToRot13(str) {
     if (newArr[i] === undefined) {
       newArr[i] = ' ';
     }
-    if (newArr[newArr.length - 1] === ' ') { // проверяем был ли знак в конце строки
-      newArr.slice(0, newArr.length - 1).concat(arrOfStr.length - 1);
-    }
+    // if (newArr[newArr.length - 1] === ' ') { // проверяем был ли знак в конце строки
+    //   newArr.slice(0, newArr.length - 1).concat(arrOfStr.length - 1);
+    // }
   }
   return newArr.join('');
 }
